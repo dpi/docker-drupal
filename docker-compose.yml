@@ -2,12 +2,14 @@
 
 version: '2'
 services:
-  web:
-    build: . # Can't be below this since we have to add files in public/
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.php7
     ports:
      - "127.0.0.1:8082:80"
     volumes:
-     - .:/var/www/html
+     - .:/var/www/html:cached
     links:
      - db
     environment:
@@ -16,14 +18,13 @@ services:
      - SITE_URL=http://localhost:8082
      - HTPASSWD_USER
      - HTPASSWD_PASSWORD
+     - XDEBUG_CONFIG=remote_host=docker.for.mac.host.internal remote_connect_back=0
+     - PHP_IDE_CONFIG=serverName=localhost
+
   db:
-    image: mysql:5.7
+    image: mariadb
     environment:
      - MYSQL_ROOT_PASSWORD=docker
      - MYSQL_DATABASE=drupal
      - MYSQL_USER=drupal
      - MYSQL_PASSWORD=drupalpw
-    volumes:
-     - data:/var/lib/mysql
-volumes:
-  data: {}

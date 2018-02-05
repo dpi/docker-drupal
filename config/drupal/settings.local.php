@@ -78,7 +78,7 @@ if (!getenv('INSTALL_ACTIVE')) {
  * During development it can be useful to install test extensions for debugging
  * purposes.
  */
-$settings['extension_discovery_scan_tests'] = TRUE;
+$settings['extension_discovery_scan_tests'] = FALSE;
 
 /**
  * Enable access to rebuild.php.
@@ -91,8 +91,6 @@ $settings['extension_discovery_scan_tests'] = TRUE;
 $settings['rebuild_access'] = TRUE;
 
 // Disable/debug some modules.
-
-$config['google_analytics.settings']['debug'] = TRUE;
 
 $settings['trusted_host_patterns'] = array(
   '^localhost$',

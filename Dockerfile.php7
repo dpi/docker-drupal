@@ -45,6 +45,8 @@ COPY config/docker/web/xdebug.sh /var/www/xdebug.sh
 COPY config/docker/web/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY config/docker/web/rsyslog.conf /etc/rsyslog.conf
 
+ENV PATH="/var/www/html/vendor/bin:${PATH}"
+
 EXPOSE 80
 
 CMD ["/usr/bin/supervisord"]
