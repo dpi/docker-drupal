@@ -1,6 +1,7 @@
 # Development compose file.
 
 version: '2'
+version: '3'
 services:
   app:
     build:
@@ -23,8 +24,16 @@ services:
 
   db:
     image: mariadb
+    ports:
+      - "3306:3306"
     environment:
      - MYSQL_ROOT_PASSWORD=docker
      - MYSQL_DATABASE=drupal
      - MYSQL_USER=drupal
      - MYSQL_PASSWORD=drupalpw
+
+  chrome:
+    image: yukinying/chrome-headless-browser
+    network_mode: service:app
+    cap_add:
+      - SYS_ADMIN
