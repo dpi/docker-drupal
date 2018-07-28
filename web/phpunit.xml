@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="core/tests/bootstrap.php" colors="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutChangesToGlobalState="true">
+  <php>
+    <ini name="error_reporting" value="32767"/>
+    <ini name="memory_limit" value="-1"/>
+    <env name="SIMPLETEST_BASE_URL" value="http://localhost/"/>
+    <env name="SIMPLETEST_DB" value="mysql://drupal:drupalpw@db:3306/drupal"/>
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="sites/simpletest"/>
+    <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak_vendors"/>
+    <env name="MINK_DRIVER_CLASS" value='Drupal\FunctionalJavascriptTests\DrupalSelenium2Driver' />
+    <env name="MINK_DRIVER_ARGS" value='["chrome", null, "http://127.0.0.1:4444/wd/hub"]' />
+  </php>
+  <testsuites>
+    <testsuite name="unit">
+      <file>./tests/TestSuites/UnitTestSuite.php</file>
+    </testsuite>
+    <testsuite name="kernel">
+      <file>./tests/TestSuites/KernelTestSuite.php</file>
+    </testsuite>
+    <testsuite name="functional">
+      <file>./tests/TestSuites/FunctionalTestSuite.php</file>
+    </testsuite>
+    <testsuite name="functional-javascript">
+      <file>./tests/TestSuites/FunctionalJavascriptTestSuite.php</file>
+    </testsuite>
+  </testsuites>
+  <listeners>
+    <listener class="\Drupal\Tests\Listeners\DrupalListener">
+    </listener>
+    <!-- The Symfony deprecation listener has to come after the Drupal listener -->
+    <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener">
+    </listener>
+  </listeners>
+  <!-- Filter for coverage reports. -->
+  <filter>
+    <whitelist>
+      <directory>./includes</directory>
+      <directory>./lib</directory>
+      <directory>./modules</directory>
+      <directory>../modules</directory>
+      <directory>../sites</directory>
+      <!-- By definition test classes have no tests. -->
+      <exclude>
+        <directory suffix="Test.php">./</directory>
+        <directory suffix="TestBase.php">./</directory>
+      </exclude>
+     </whitelist>
+  </filter>
+</phpunit>
