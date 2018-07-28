@@ -42,6 +42,7 @@ RUN a2ensite 000-default.conf
 COPY config/docker/web/drushrc.php /etc/drush/drushrc.php
 COPY config/docker/web/bootstrap.sh /bootstrap.sh
 COPY config/docker/web/xdebug.sh /var/www/xdebug.sh
+COPY config/docker/web/php.ini /usr/local/etc/php/conf.d/php.ini
 COPY config/docker/web/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY config/docker/web/rsyslog.conf /etc/rsyslog.conf
 
