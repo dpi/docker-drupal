@@ -12,4 +12,5 @@ web/sites/default/files
 .idea
 web/sites/simpletest/*
 web/modules/custom/*
+web/*
 drush/contrib/*
