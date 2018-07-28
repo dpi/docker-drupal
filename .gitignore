@@ -12,4 +12,4 @@ web/sites/default/files
 .idea
 web/sites/simpletest/*
 web/modules/custom/*
-
+drush/contrib/*
