@@ -60,7 +60,7 @@
             "ext-dom": "1",
             "ext-xmlwriter": "1",
             "ext-simplexml": "1",
-            "php": "7.1.999999"
+            "php": "7.2.999999"
         }
     },
     "autoload": {
