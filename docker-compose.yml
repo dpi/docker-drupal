@@ -32,8 +32,12 @@ services:
      - MYSQL_USER=drupal
      - MYSQL_PASSWORD=drupalpw
 
-  chrome:
-    image: yukinying/chrome-headless-browser
+#  blackfire:
+#    image: blackfire/blackfire
+#    environment:
+#      BLACKFIRE_SERVER_ID:
+#      BLACKFIRE_SERVER_TOKEN:
+
+  selenium:
+    image: selenium/standalone-chrome
     network_mode: service:app
-    cap_add:
-      - SYS_ADMIN
