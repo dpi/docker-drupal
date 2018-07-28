@@ -70,7 +70,5 @@ $settings['extension_discovery_scan_tests'] = FALSE;
 $settings['rebuild_access'] = TRUE;
 
 // Disable/debug some modules.
+$settings['trusted_host_patterns'][] = '^[a-z]{1,16}\.localhost$';
 
-$settings['trusted_host_patterns'] = array(
-  '^localhost$',
-);
