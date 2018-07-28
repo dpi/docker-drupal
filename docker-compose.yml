@@ -14,6 +14,7 @@ services:
     links:
      - db
     environment:
+       # Remove dev and rebuild to kill xdebug
      - ENVIRONMENT=DEV
      - DRUPAL_INSTALL=TRUE
      - HTPASSWD_USER
