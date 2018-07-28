@@ -72,3 +72,8 @@ $settings['rebuild_access'] = TRUE;
 // Disable/debug some modules.
 $settings['trusted_host_patterns'][] = '^[a-z]{1,16}\.localhost$';
 
+// Show errors, not 500's.
+ini_set('display_errors', 1);
+ini_set('memory_limit','512M');
+
+$settings['skip_permissions_hardening'] = TRUE;
