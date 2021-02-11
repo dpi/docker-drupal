@@ -1,3 +1,21 @@
+This repo is superceded by https://github.com/dpi/drupal-local
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+
+
 # Docker Scaffolding for Drupal 8
 
 [![Docker Automated buil](https://img.shields.io/docker/automated/bradjonesllc/docker-drupal.svg?maxAge=2592000)](https://hub.docker.com/r/bradjonesllc/docker-drupal)
